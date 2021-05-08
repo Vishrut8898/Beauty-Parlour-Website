@@ -1,0 +1,6 @@
+const openNavBtn = document.querySelector('.open-nav');
+const respoNav = document.querySelector('.respo-nav');
+
+openNavBtn.addEventListener('click', (e) => {
+    respoNav.classList.toggle('show');
+})

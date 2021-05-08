@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shree Santoshi Beauty Spa & Salon</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+      integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ="
+      crossorigin="anonymous"
+    />
+    <!-- <link rel="shortcut icon" href="./assets/img/favicon.ico" /> -->
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="./assets/img/apple-icon.png"
+    />
+    <link
+      rel="stylesheet"
+      href="./assets/vendor/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+    <!-------- jquery --------->
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</head>
+<body id="body">
+
+    <!------ POP UP MESSAGE ------>
+
+        <% if(show) { %>
+          <div class="body-layer show-body-layer z-50 opacity-75 fixed bg-gray-800">
+          </div>
+          <div class="pop-up show-pop-up fixed z-50 flex flex-col">
+            <div class="modal p-6 rounded-xl opacity-100 bg-white">
+              <h1 id="modal-title" class="text-xl z-50 my-2 font-semibold text-black">
+                <%= title %>
+              </h1>
+              <p id="modal-text" class="leading my-2">
+                <%= text %>
+              </p>
+              <button id="modal-btn" type="button" class="bg-indigo-600 text-white py-2 px-6 font-semibold mt-2 rounded-md hover:bg-indigo-500 focus:shadow-outline focus:outline-none cursor-pointer ease-in-out duration-300">Okay</button>
+            </div>
+          </div>
+        <% } else { %>
+          <div class="body-layer z-50 opacity-75 fixed bg-gray-800">
+          </div>
+          <div class="pop-up fixed z-50 flex flex-col">
+            <div class="modal p-6 rounded-xl opacity-100 bg-white">
+              <h1 id="modal-title" class="text-xl z-50 my-2 font-semibold text-black">
+                
+              </h1>
+              <p id="modal-text" class="leading my-2">
+                
+              </p>
+              <button id="modal-btn" type="button" class="bg-indigo-600 text-white py-2 px-6 font-semibold mt-2 rounded-md hover:bg-indigo-500 focus:shadow-outline focus:outline-none cursor-pointer ease-in-out duration-300">Okay</button>
+            </div>
+          </div>
+        <% } %>
+
+    <!---------- NAVBAR ---------->
+    <div class="respo-nav respo-navbar fixed md:hidden w-full bg-gray-800 transition-all duration-500 ease-in-out border-b-8 border-indigo-500">
+        <div class="px-2 pt-2 pb-3 w-full">
+            <a href="/" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Home</a>
+            <a href="/appointment" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Appointment</a>
+        </div>
+    </div>
+
+    <nav class="navbary bg-gray-800 z-40 fixed w-full">
+        <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+        <div class="relative flex items-center justify-between h-16">
+            <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+            <!-- Mobile menu button-->
+            <button class="open-nav inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white transition duration-150 ease-in-out" aria-label="Main menu" aria-expanded="false">
+                
+                <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                
+                <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            </div>
+            <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+                <div class="flex-shrink-0">
+                    <h1 class="text-white text-xl font-bold">Shree Santoshi</h1>
+                </div>
+                <div class="hidden sm:block sm:ml-6">
+                    <div class="flex">
+                        <a href="/" class="px-3 py-2 rounded-md text-sm font-medium leading-5 text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Home</a>
+                        <a href="/appointment" class="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Appointment</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </nav>
+
+    <!---------- GET APPOINTMENT ---------->
+
+    <section class="appointment text-center mt-32" id="appointment">
+
+        <p class="text-indigo-700 tracking-tight mb-2 font-medium capitalize">Explore our venue</p>
+        <h1 class="text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:text-5xl sm:leading-none">
+            Get Appointment
+        </h1>
+        <p class="text-gray-900 my-6 mx-20 md:mx-40 text-sm sm:text-lg md:px-8 pb-4 leading tracking-tight mb-2 font-normal capitalize">
+            We have custom plans to power your beauty. Get appointment according to your needs. <br>
+        </p>
+        <div class="contact-inputs flex items-center justify-center">
+            <form class="contact-form" action="/appointment" method="POST">
+                <div class="name-section mt-6 w-full flex items-center flex-col md:flex-row">
+                    <div class="first-name w-full md:w-1/2 mx-2 my-1">
+                        <input required type="text" name="firstName" class="w-full text-lg shadow-md p-3 mx-2 my-2 outline-none border-2 border-gray-400 rounded-xl focus:shadow-outline" name="firstName" id="firstName" placeholder="First Name">
+                    </div>
+                    <div class="last-name w-full md:w-1/2 mx-2 my-1">
+                        <input required type="text" name="lastName" class="w-full text-lg shadow-md p-3 mx-2 my-2 outline-none border-2 border-gray-400 rounded-xl focus:shadow-outline" name="lastName" id="lastName" placeholder="Last Name">
+                    </div>
+                </div>
+                <div class="second-section mt-4 w-full flex items-center flex-col md:flex-row">
+                    <div class="email w-full md:w-1/2 mx-2 my-1">
+                        <input required type="email" name="appointmentEmail" class="w-full text-lg shadow-md p-3 mx-2 my-2 outline-none border-2 border-gray-400 rounded-xl focus:shadow-outline" name="email" id="email" placeholder="Your Email">
+                    </div>
+                    <div class="need w-full md:w-1/2 mx-2 my-1">
+                        <input required type="text" name="appointmentService" class="w-full text-lg shadow-md p-3 mx-2 my-2 outline-none border-2 border-gray-400 rounded-xl focus:shadow-outline" name="need" id="need" placeholder="Service You Need">
+                    </div>
+                </div>
+                <div class="third-section w-full mt-4 flex items-center flex-col md:flex-row">
+                    <div class="w-full md:w-1/2 mx-2 my-1">
+                        <input required type="date" name="appointmentDate" class="w-full text-lg shadow-md p-3 mx-2 my-2 outline-none border-2 border-gray-400 rounded-xl focus:shadow-outline" name="date" id="date">
+                    </div>
+                    <div class="w-full md:w-1/2 mx-2 my-1">
+                        <input required type="time" name="appointmentTime" class="w-full text-lg shadow-md p-3 mx-2 my-2 outline-none border-2 border-gray-400 rounded-xl focus:shadow-outline" name="time" id="time" placeholder="Service You Need">
+                    </div>
+                </div>
+                <button type="submit" class="py-2 px-4 my-6 bg-indigo-700 shadow-2xl text-white font-medium text-lg rounded-md hover:bg-indigo-500 outline-none transition-all duration-300 active:shadow-outline active:outline-none active:border-none">Submit</button>
+            </form>
+        </div>
+        <div class="note">
+            <small><strong>NOTE</strong>: Opens At 11:00 AM & Closes At 11:00 PM</small>
+        </div>
+    </section>
+
+    <!---------- FOOTER ---------->
+
+    <footer class="relative bg-gray-300 pt-8 mt-12 pb-6">
+        <div
+          class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
+          style="height: 80px; transform: translateZ(0px);"
+        >
+          <svg
+            class="absolute bottom-0 overflow-hidden"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="none"
+            version="1.1"
+            viewBox="0 0 2560 100"
+            x="0"
+            y="0"
+          >
+            <polygon
+              class="text-gray-300 fill-current"
+              points="2560 0 2560 100 0 100"
+            ></polygon>
+          </svg>
+        </div>
+        <div class="container mx-auto px-4">
+          <div class="flex flex-wrap">
+            <div class="w-full lg:w-6/12 px-4">
+              <h4 class="text-3xl font-semibold">Let's keep in touch!</h4>
+              <h5 class="text-lg mt-0 mb-2 text-gray-700">
+                Find us on any of these platforms, we respond in less than 24 hours.
+              </h5>
+              <div class="mt-6">
+                  <button
+                  class="bg-white text-blue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3"
+                  type="button"
+                >
+                  <i class="flex fab fa-facebook-square"></i></button
+                ><button
+                  class="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3"
+                  type="button"
+                >
+                  <i class="flex fab fa-instagram"></i></button
+                ><button
+                  class="bg-white text-green-500 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3"
+                  type="button"
+                >
+                  <i class="flex fab fa-whatsapp"></i>
+                </button>
+              </div>
+            </div>
+            <div class="w-full mt-6 lg:w-6/12 px-4">
+              <div class="flex flex-wrap items-top mb-6">
+                <div class="w-full lg:w-4/12 px-4 ml-auto">
+                  <ul class="list-unstyled">
+                    <li>
+                      <p
+                        class="text-gray-700 font-semibold block pb-1 text-sm"
+                        >Shop no. 13, Spring Rose Building,</p
+                      >
+                      <p
+                        class="text-gray-700 font-semibold block pb-1 text-sm"
+                        >Kanakia Road, Jangid Enclave Chs Ltd,</p
+                      >
+                      <p
+                        class="text-gray-700 font-semibold block pb-1 text-sm"
+                        >Opp. Laxmi Park, Mira Road (E),</p
+                      >
+                      <p
+                        class="text-gray-700 font-semibold block pb-1 text-sm"
+                        >Thane - 401107, Mumbai </p
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr class="my-6 border-gray-400" />
+          <div
+            class="flex flex-wrap items-center md:justify-between justify-center"
+          >
+            <div class="w-full md:w-4/12 px-4 mx-auto text-center">
+              <div class="text-sm text-gray-600 font-semibold py-1">
+                Copyright © 2020 Shree Santoshi Beauty Parlour by
+                <a
+                  href="https://www.creative-tim.com"
+                  class="text-gray-600 hover:text-gray-900"
+                  >Vishrut Margam</a
+                >.
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    <script>
+      const openNavBtn = document.querySelector('.open-nav');
+      const respoNav = document.querySelector('.respo-nav');
+      const linkBtn = document.querySelectorAll('.respo-nav div a');
+      const serviceInner = document.querySelector('.service-inner');
+      const bodyLayer = document.querySelector('.body-layer');
+      const popUp = document.querySelector('.pop-up');
+      const modalBtn = document.querySelector('#modal-btn');
+
+      openNavBtn.addEventListener('click', (e) => {
+      respoNav.classList.toggle('show');
+})
+
+      linkBtn.forEach(link => {
+          link.addEventListener('click', () => {
+              respoNav.classList.toggle('show');
+          })
+      })
+
+      modalBtn.addEventListener('click', () => {
+          popUp.classList.remove('show-pop-up');
+          bodyLayer.classList.remove('show-body-layer');
+      })
+      function SetMinDate() {
+        var now = new Date();
+
+        var day = ("0" + now.getDate()).slice(-2);
+        var month = ("0" + (now.getMonth() + 1)).slice(-2);
+
+        var today = now.getFullYear() + "-" + (month) + "-" + (day);
+
+        $('#date').val(today);
+        $('#date').attr('min', today); 
+      }
+      SetMinDate();
+    </script>
+
+</body>
+</html>

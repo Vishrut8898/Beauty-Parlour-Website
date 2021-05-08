@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shree Santoshi Beauty Spa & Salon</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+      integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ="
+      crossorigin="anonymous"
+    />
+    <!-- <link rel="shortcut icon" href="./assets/img/favicon.ico" /> -->
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="./assets/img/apple-icon.png"
+    />
+    <link
+      rel="stylesheet"
+      href="./assets/vendor/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+    <!--------- jquery ---------->
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</head>
+<body id="body" class="bg-gray-900 transition-all duration-300 ease-in-out">
+
+    <!------ POP UP MESSAGE ------>
+
+    <% if(show) { %>
+    <div class="body-layer show-body-layer z-50 opacity-75 fixed bg-gray-800 w-screen h-screen">
+    </div>
+    <div class="pop-up show-pop-up fixed z-50 flex flex-col w-4/12 h-3">
+      <div class="modal p-6 rounded-xl opacity-100 bg-white">
+        <h1 id="modal-title" class="text-xl z-50 my-2 font-semibold text-black">
+            <%= title %>
+        </h1>
+        <p id="modal-text" class="leading my-2">
+            <%= text %>
+        </p>
+        <button id="modal-btn" type="button" class="bg-indigo-600 text-white py-2 px-6 font-semibold mt-2 rounded-md hover:bg-indigo-500 focus:shadow-outline focus:outline-none cursor-pointer ease-in-out duration-300">Okay</button>
+      </div>
+    </div>
+    <% } else { %>
+      <div class="body-layer z-50 opacity-75 fixed bg-gray-800 w-screen h-screen">
+      </div>
+      <div class="pop-up fixed z-50 flex flex-col w-4/12 h-3">
+        <div class="modal p-6 rounded-xl opacity-100 bg-white">
+          <h1 id="modal-title" class="text-xl z-50 my-2 font-semibold text-black">
+          </h1>
+          <p id="modal-text" class="leading my-2">
+          </p>
+          <button id="modal-btn" type="button" class="bg-indigo-600 text-white py-2 px-6 font-semibold mt-2 rounded-md hover:bg-indigo-500 focus:shadow-outline focus:outline-none cursor-pointer ease-in-out duration-300">Okay</button>
+        </div>
+      </div>
+    <% } %>
+    
+    <!---------- NAVBAR ---------->
+    <div class="respo-nav fixed md:hidden w-full bg-gray-800 transition-all duration-700 ease-in-out border-b-8 border-indigo-500">
+        <div class="px-2 pt-2 pb-3 w-full">
+            <a href="#body" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Home</a>
+            <a href="#about" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">About</a>
+            <a href="#service" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Services</a>
+            <a href="#contact" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Contact</a>
+            <a href="/appointment" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Appointment</a>
+        </div>
+    </div>
+
+    <nav class="bg-gray-800 z-50 fixed object-top w-full">
+        <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+        <div class="relative flex items-center justify-between h-16">
+            <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+            <!-- Mobile menu button-->
+            <button class="open-nav inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white transition duration-150 ease-in-out" aria-label="Main menu" aria-expanded="false">
+                
+                <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                
+                <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            </div>
+            <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+                <div class="flex-shrink-0">
+                    <h1 class="text-white text-xl font-bold">Shree Santoshi</h1>
+                </div>
+                <div class="hidden sm:block sm:ml-6">
+                    <div class="flex">
+                        <a href="#body" class="px-3 py-2 rounded-md text-sm font-medium leading-5 text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Home</a>
+                        <a href="#about" class="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">About</a>
+                        <a href="#service" class="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Services</a>
+                        <a href="#contact" class="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Contact</a>
+                        <a href="/appointment" class="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Appointment</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </nav>
+  
+    <!---------- HERO SECTION ---------->
+
+    <div class="relative bg-white overflow-hidden">
+        <div class="max-w-screen-xl mx-auto mt-12">
+        <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+            <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <polygon points="50,0 100,0 50,100 0,100" />
+            </svg>
+    
+            <div class="object-top sticky pt-6 px-4 sm:px-6 lg:px-8">
+            </div>
+
+            <main class="mt-10 mx-auto max-w-screen-xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+            <div class="sm:text-center lg:text-left">
+                <h2 class="text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:text-5xl sm:leading-none md:text-6xl">
+                Shree Santoshi
+                <br class="xl:hidden">
+                <span class="text-indigo-600">Beauty Parlour</span>
+                </h2>
+                <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                  Shree Santoshi is a ladies beauty spa & salon. <br> 
+                  New to Shree Santoshi or interested to trying a service. Get an appointment. :)
+                </p>
+                <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+                  <div class="rounded-md shadow">
+                      <a href="/appointment" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
+                      Get Appointment
+                      </a>
+                  </div>
+                </div>
+            </div>
+            </main>
+        </div>
+        </div>
+        <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+        <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="img/spa.jpg" alt="">
+        </div>
+    </div>
+  
+    
+    <!---------- ABOUT US ---------->
+    <section class="about pt-10 px-1 pb-4 text-center bg-gray-200" id="about">
+        <p class="text-indigo-700 tracking-tight font-medium capitalize">what we are & what we do</p>
+        <h1 class="text-4xl mt-4 pb-6 md:mx-40 mx-20 tracking-tight leading-10 font-extrabold text-gray-900 sm:text-5xl">
+            About Us
+        </h1>
+        <div class="about-inner my-16 flex flex-col items-center lg:flex-row">
+            <div class="about-image lg:w-1/2 shadow-2xl">
+            </div>
+            <div class="about-info lg:w-1/2 mx-2 md:mx-10 mt-10 lg:my-0 p-4 bg-white shadow-2xl rounded-2xl text-center">
+                <div class="bg-white">
+                    <div class="max-w-screen-xl px-4 sm:px-6 lg:px-8">
+                      <div class="lg:text-center">
+                        <p class="text-base sm:mt-2 leading-6 text-indigo-600 font-semibold tracking-wide uppercase">Transactions</p>
+                        <h3 class="mt-1 sm:text-2xl text-4xl leading-10 font-extrabold tracking-tight text-gray-900 sm:leading-10">
+                          My Name is Pooja
+                        </h3>
+                        <p class="mt-3 text-sm md:text-md sm:mt-1 leading-5 text-gray-500 lg:mx-auto text-center">
+                          Expert in Adding Care to your beauty.
+                        </p>
+                      </div>
+                  
+                      <div class="mt-5 md:mt-8">
+                        <ul class="md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10 lg:flex lg:flex-col">
+                          <li>
+                            <div class="flex flex-col md:flex-row items-start">
+                              <div class="flex-shrink-0 pl-4">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white mb-4 md:mb-0">
+                                  <!-- Heroicon name: globe-alt -->
+                                  <img class="experience" src="https://img.icons8.com/fluent/48/000000/experience-skill.png"/>
+                                </div>
+                              </div>
+                              <div class="ml-4">
+                                <h4 class="text-lg leading-6 font-medium text-left text-gray-900">Industry Experience</h4>
+                                <p class="mt-2 text-left leading-6 text-sm md:text-md text-gray-500">
+                                  I have been working in this industry since past <strong class="text-gray-600">20</strong> years and learned many valuable skills which can now be helpful for your beauty.
+                                </p>
+                              </div>
+                            </div>
+                          </li>
+                          <li class="mt-10 md:mt-0">
+                            <div class="flex flex-col md:flex-row items-start">
+                              <div class="flex-shrink-0 pl-4">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white mb-4 md:mb-0">
+                                  <!-- Heroicon name: scale -->
+                                  <img class="experience" src="https://img.icons8.com/dusk/64/000000/customer-insight.png"/>
+                                </div>
+                              </div>
+                              <div class="ml-4">
+                                <h4 class="text-lg text-left leading-6 font-medium text-gray-900">100's Of Happy Cients</h4>
+                                <p class="mt-2 text-left leading-6 text-sm md:text-md text-gray-500">
+                                  Throughout the past <strong class="text-gray-600">20</strong> years, I've have dedicated all my life to add value to my clients life in the best way possible.
+                                </p>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                <button id="see-services" class="bg-indigo-500 text-white font-medium rounded-md px-4 py-2 my-6 shadow-xl">See Services</button>
+            </div>
+        </div>
+    </section>
+
+    <!---------- SERVICES ---------->
+    <section class="service bg-white relative pt-10 px-1 pb-20 text-center flex flex-col items-center" id="service">
+        <div class="left-key bg-green-200 p-3 rounded-full hover:bg-green-300 cursor-pointer">
+            <i class="fa fa-chevron-left fa-2x" aria-hidden="true"></i>
+        </div>
+        <div class="right-key bg-green-200 p-3 rounded-full hover:bg-green-300 cursor-pointer">
+            <i class="fa fa-chevron-right fa-2x" aria-hidden="true"></i>
+        </div>
+        <p class="text-indigo-700 tracking-tight mb-4 font-medium capitalize">what we are offering</p>
+        <h1 class="text-4xl pb-8 mx-20 sm:mx-40 tracking-tight leading-10 sm:text-5xl font-extrabold text-gray-900">
+            Discover Our Services
+        </h1>
+        <div class="service-inner mt-6 pb-4 px-2 bg-white">
+          <% services.forEach((service) => { %>
+            <div class="sizeWidth shadow-xl relative my-4 flex flex-col items-center justify-center px-4">
+              <img src="<%= service.pic %>" class="w-full h-auto object-cover mb-6">
+    
+              <h2 class="text-xl leading-tight mb-2"><%= service.title %></h2>
+              <h3 class="text-xl font-bold leading-tight mb-2">Rs <%= service.price %>/-</h3>
+              <p class="mt-3 pb-4 px-8 mx-auto text-sm leading-normal"><%= service.desc %></p>
+            </div>
+          <% }) %>
+        </div>
+    </section>
+       
+    <!---------- CONTACT ---------->
+
+    <section class="contact pb-20 mt-24 relative block bg-gray-900" id="contact">
+        <div
+          class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
+          style="height: 80px; transform: translateZ(0px);"
+        >
+          <svg
+            class="absolute bottom-0 overflow-hidden"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="none"
+            version="1.1"
+            viewBox="0 0 2560 100"
+            x="0"
+            y="0"
+          >
+            <polygon
+              class="text-gray-900 fill-current"
+              points="2560 0 2560 100 0 100"
+            ></polygon>
+          </svg>
+        </div>
+        <div class="container mx-auto px-4 lg:pt-8 lg:pb-48">
+          <div class="flex flex-wrap text-center justify-center">
+            <div class="w-full lg:w-6/12 px-4">
+                <h1 class="text-4xl mt-6 tracking-tight leading-10 font-extrabold text-white sm:text-5xl sm:leading-none">
+                    Contact Us
+                </h1>
+              <p class="text-lg leading-relaxed mt-2 mb-2 text-gray-500">
+                If you have any queries or if you want to enquire, feel free to contact us.
+                We are here for you
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section class="relative block py-24 lg:pt-0 bg-gray-900">
+        <div class="container mx-auto px-4 my-5 ">
+          <div class="flex flex-wrap justify-center lg:-mt-64 -mt-32">
+            <div class="w-full lg:w-6/12 px-4">
+              <div
+                class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-300"
+              >
+                <div class="flex-auto p-5 lg:p-10">
+                  <h4 class="text-2xl font-semibold">For Any Queries or Questions</h4>
+                  <p class="leading-relaxed mt-1 mb-4 text-gray-600">
+                    Complete this form and we will get back to you in less than 24 hours.
+                  </p>
+                  <form action="/" method="POST" id="contact-form">
+                    <div class="relative w-full mb-3 mt-8">
+                      <label
+                        class="block uppercase text-gray-700 text-xs font-bold mb-2"
+                        for="full-name"
+                        >Full Name</label
+                      ><input
+                        required
+                        type="text"
+                        id="contactName"
+                        name="contactName"
+                        class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
+                        placeholder="Full Name"
+                        style="transition: all 0.15s ease 0s;"
+                      />
+                    </div>
+                    <div class="relative w-full mb-3">
+                      <label
+                        class="block uppercase text-gray-700 text-xs font-bold mb-2"
+                        for="email"
+                        >Email</label
+                      ><input
+                        required
+                        type="email"
+                        id="contactEmail"
+                        name="contactEmail"
+                        class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
+                        placeholder="Email"
+                        style="transition: all 0.15s ease 0s;"
+                      />
+                    </div>
+                    <div class="relative w-full mb-3">
+                      <label
+                        class="block uppercase text-gray-700 text-xs font-bold mb-2"
+                        for="subject"
+                        >SUBJECT</label
+                      ><input
+                        required
+                        type="text"
+                        id="contactSubject"
+                        name="contactSubject"
+                        class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
+                        placeholder="Subject"
+                        style="transition: all 0.15s ease 0s;"
+                      />
+                    </div>
+                    <div class="relative w-full mb-3">
+                      <label
+                        class="block uppercase text-gray-700 text-xs font-bold mb-2"
+                        for="message"
+                        >Message</label
+                      ><textarea
+                        required
+                        id="contactMessage"
+                        name="contactMessage"
+                        rows="4"
+                        cols="80"
+                        class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
+                        placeholder="Type a message..."
+                      ></textarea>
+                    </div>
+                    <div class="text-center mt-6">
+                      <button
+                        class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg hover:bg-gray-800 outline-none focus:outline-none mr-1 mb-1"
+                        type="submit"
+                        style="transition: all 0.15s ease 0s;"
+                      >
+                        Send Message
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <!---------- FOOTER ---------->
+
+    <footer class="relative bg-gray-300 pt-8 mt-12 pb-6">
+        <div
+          class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
+          style="height: 80px; transform: translateZ(0px);"
+        >
+          <svg
+            class="absolute bottom-0 overflow-hidden"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="none"
+            version="1.1"
+            viewBox="0 0 2560 100"
+            x="0"
+            y="0"
+          >
+            <polygon
+              class="text-gray-300 fill-current"
+              points="2560 0 2560 100 0 100"
+            ></polygon>
+          </svg>
+        </div>
+        <div class="container mx-auto px-4">
+          <div class="flex flex-wrap">
+            <div class="w-full lg:w-6/12 px-4">
+              <h4 class="text-3xl font-semibold">Let's keep in touch!</h4>
+              <h5 class="text-lg mt-0 mb-2 text-gray-700">
+                Find us on any of these platforms, we respond in less than 24 hours.
+              </h5>
+              <div class="mt-6">
+                  <button
+                  class="bg-white text-blue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3"
+                  type="button"
+                >
+                  <i class="flex fab fa-facebook-square"></i></button
+                ><button
+                  class="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3"
+                  type="button"
+                >
+                  <i class="flex fab fa-instagram"></i></button
+                ><button
+                  class="bg-white text-green-500 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3"
+                  type="button"
+                >
+                  <i class="flex fab fa-whatsapp"></i>
+                </button>
+              </div>
+            </div>
+            <div class="w-full mt-6 lg:w-6/12 px-4">
+              <div class="flex flex-wrap items-top mb-6">
+                <div class="w-full lg:w-4/12 px-4 ml-auto">
+                  <ul class="list-unstyled">
+                    <li>
+                      <p
+                        class="text-gray-700 font-semibold block pb-1 text-sm"
+                        >Shop no. 13, Spring Rose Building,</p
+                      >
+                      <p
+                        class="text-gray-700 font-semibold block pb-1 text-sm"
+                        >Kanakia Road, Jangid Enclave Chs Ltd,</p
+                      >
+                      <p
+                        class="text-gray-700 font-semibold block pb-1 text-sm"
+                        >Opp. Laxmi Park, Mira Road (E),</p
+                      >
+                      <p
+                        class="text-gray-700 font-semibold block pb-1 text-sm"
+                        >Thane - 401107, Mumbai </p
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr class="my-6 border-gray-400" />
+          <div
+            class="flex flex-wrap items-center md:justify-between justify-center"
+          >
+            <div class="w-4/12 px-4 mx-auto text-center">
+              <div class="text-sm text-gray-600 font-semibold py-1">
+                Copyright © 2020 Shree Santoshi Beauty Parlour by
+                <a
+                  href="https://www.creative-tim.com"
+                  class="text-gray-600 hover:text-gray-900"
+                  >Vishrut Margam</a
+                >.
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    <script src="js/index.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital@1&display=swap');
+
+.respo-nav {
+    position: absolute;
+    top: -100%;
+    z-index: 40;
+}
+.respo-nav.show {
+    top: 4rem;
+}
+.about, .service, .contact {
+    font-family: 'Poppins', sans-serif;
+}
+.about h1, .service h1, .contact p:nth-of-type(2) {
+    border-bottom: 2px solid #000;
+}
+.about h1, .service h1, .contact h1 {
+    text-shadow: 5px 5px 5px gainsboro;
+}
+.about-image {
+    background-image: url('../img/lady3.jpg');
+    height: 550px;
+    border: 20px solid #3D3C3A;
+}
+.service-inner {
+    max-width: 80%;
+    justify-content: center;
+}
+.service-inner div div {
+    min-width: 320px;
+}
+.contact-inputs form {
+    width: 70%;
+}
+.carousel {
+    width: 80%;
+    height: 100%;
+    position: relative;
+    -webkit-box-shadow: 0px 6px 20px 10px #000000; 
+    box-shadow: 0px 6px 13px 2px #000000;
+}
+.carousel-open:checked + .carousel-item {
+    position: static;
+    opacity: 100;
+}
+.carousel-item {
+    -webkit-transition: opacity 0.6s ease-out;
+    transition: opacity 0.6s ease-out;
+}
+#carousel-1:checked ~ .control-1,
+#carousel-2:checked ~ .control-2,
+#carousel-3:checked ~ .control-3 {
+    display: block;
+}
+.carousel-indicators {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    bottom: 2%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 10;
+}
+#carousel-1:checked ~ .control-1 ~ .carousel-indicators li:nth-child(1) .carousel-bullet,
+#carousel-2:checked ~ .control-2 ~ .carousel-indicators li:nth-child(2) .carousel-bullet,
+#carousel-3:checked ~ .control-3 ~ .carousel-indicators li:nth-child(3) .carousel-bullet {
+    color: grey;  /*Set to match the Tailwind colour you want the active one to be */
+}
+.feedback {
+    background-image: url('../img/customer4.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.testimonial {
+    width: 100%;
+}
+.testimonial img {
+    bottom: 0;
+    top: -100%;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.testimonial blockquote {
+    font-family: 'PT Serif', serif;
+}
+
+@media (max-width: 668px) {
+    .about-image {
+        height: 450px;
+    }
+    .service-inner div div {
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-inputs form {
+        width: 80%;
+    }
+}
